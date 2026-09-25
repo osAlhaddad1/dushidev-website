@@ -352,7 +352,8 @@ void main(){
      Language (EN lives in the HTML, PAP comes from i18n.js)
      ------------------------------------------------------------------------ */
   const I18N = window.DD_I18N || { pap: {}, ui: {} };
-  let lang = document.documentElement.lang === 'pap' ? 'pap' : 'en';
+  const LANGS = ['pap', 'en', 'nl'];   // Papiamento is the default
+  let lang = LANGS.includes(document.documentElement.lang) ? document.documentElement.lang : 'pap';
   const ui = (key, ...args) => {
     const table = (I18N.ui && I18N.ui[lang]) || {};
     const fallback = (I18N.ui && I18N.ui.en) || {};
@@ -464,6 +465,7 @@ void main(){
   const TITLES = {
     en: { development: 'Development', security: 'Cyber Security', infrastructure: 'Infrastructure & Optimization', portfolio: 'Portfolio', team: 'The Team', contact: 'Get a Quote' },
     pap: { development: 'Desaroyo', security: 'Cyber Security', infrastructure: 'Infrastructura & Optimisacion', portfolio: 'Portfolio', team: 'E Team', contact: 'Pidi un Quote' },
+    nl: { development: 'Ontwikkeling', security: 'Cybersecurity', infrastructure: 'Infrastructuur & Optimalisatie', portfolio: 'Portfolio', team: 'Het team', contact: 'Offerte aanvragen' },
   };
   function setTitle() {
     const name = TITLES[lang][current];
@@ -653,6 +655,7 @@ void main(){
   const SERVICE_NAME = {
     en: { dev: 'Development', sec: 'Cyber Security', infra: 'Infrastructure & Optimization' },
     pap: { dev: 'Desaroyo', sec: 'Cyber Security', infra: 'Infrastructura & Optimisacion' },
+    nl: { dev: 'Ontwikkeling', sec: 'Cybersecurity', infra: 'Infrastructuur & Optimalisatie' },
   };
   const form = $('[data-form]');
   if (form) {
@@ -714,9 +717,9 @@ void main(){
   const EN_ARIA = new Map($$('[data-i18n-aria]').map((el) => [el, el.getAttribute('aria-label') || '']));
 
   function applyLang(next, persist) {
-    lang = next === 'pap' ? 'pap' : 'en';
+    lang = LANGS.includes(next) ? next : 'pap';
     document.documentElement.lang = lang;
-    const dict = lang === 'pap' ? (I18N.pap || {}) : null;
+    const dict = lang === 'en' ? null : (I18N[lang] || {});
     EN_HTML.forEach((html, el) => {
       const v = dict && dict[el.dataset.i18n];
       el.innerHTML = v == null ? html : v;
@@ -741,4 +744,5 @@ void main(){
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   route();
   applyLang(lang, false);
+  document.documentElement.classList.remove('i18n-pending');
 })();

@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="pap">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>DushiDev</title>
-  <meta name="description" content="DushiDev is a web development studio from Aruba. Three ICT students specialized in websites, software and cyber security, helping your business grow.">
+  <meta name="description" content="DushiDev is a development studio from Aruba, specialized in websites, custom software, cyber security and infrastructure.">
   <meta name="theme-color" content="#000000">
 
   <!-- Fonts: Doto (display), Space Grotesk (body), Space Mono (labels/data) -->
@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@400..900,0..100&family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=3">
-  <script>try{var l=localStorage.getItem('dd-lang');if(l==='pap'||l==='en')document.documentElement.lang=l;}catch(e){}</script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script>(function(){var d=document.documentElement,l='pap';try{var s=localStorage.getItem('dd-lang');if(s==='pap'||s==='en'||s==='nl')l=s;}catch(e){}d.lang=l;if(l!=='en'){d.classList.add('i18n-pending');setTimeout(function(){d.classList.remove('i18n-pending');},2500);}})();</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -40,6 +40,7 @@
         <div class="segmented segmented--sm nav__lang" role="group" aria-label="Language">
           <button type="button" data-lang-set="pap" lang="pap">PAP</button>
           <button type="button" data-lang-set="en" lang="en">EN</button>
+          <button type="button" data-lang-set="nl" lang="nl">NL</button>
         </div>
         <a class="nav__quote" href="#contact" data-route-link="contact" aria-label="Get a quote" data-i18n-aria="nav.quote.aria">
           <span class="nav__quote-label" data-i18n="nav.quote">GET A QUOTE</span>
@@ -64,9 +65,9 @@
         <div class="segmented segmented--sm" role="group" aria-label="Language">
           <button type="button" data-lang-set="pap" lang="pap">PAP</button>
           <button type="button" data-lang-set="en" lang="en">EN</button>
+          <button type="button" data-lang-set="nl" lang="nl">NL</button>
         </div>
         <span class="label copyable">CONTACT@DUSHI.DEV</span>
-        <span class="label" data-i18n="menu.where">ARUBA ⇄ NETHERLANDS</span>
       </div>
     </div>
   </div>
@@ -89,7 +90,7 @@
 
           <div class="hero__foot">
             <div class="hero__intro">
-              <p class="lede" data-i18n="hero.lede">We build digital experiences for Aruba. Three ICT students specialized in websites, software and cyber security, helping your business grow.</p>
+              <p class="lede" data-i18n="hero.lede">We build digital experiences for Aruba: websites, software and cyber security, made by a local team that wants to see your business grow.</p>
               <div class="hero__ctas">
                 <a class="btn btn--primary" href="#contact" data-i18n="hero.cta1">START YOUR PROJECT</a>
                 <a class="btn btn--secondary" href="#portfolio" data-i18n="hero.cta2">SEE OUR WORK</a>
@@ -127,12 +128,12 @@
           <span class="caption" data-i18n="stats.reply.cap">WE USUALLY REPLY WITHIN A DAY.</span>
         </div>
         <div class="stat">
-          <span class="label" data-i18n="stats.origin">ORIGIN</span>
-          <dl class="rows">
-            <div><dt data-i18n="stats.from">FROM</dt><dd>ARUBA</dd></div>
-            <div><dt data-i18n="stats.studying">STUDYING IN</dt><dd data-i18n="stats.nl">NETHERLANDS</dd></div>
-            <div><dt data-i18n="stats.langs">LANGUAGES</dt><dd>PAP · EN</dd></div>
-          </dl>
+          <span class="label" data-i18n="stats.services">SERVICES</span>
+          <ul class="rows rows--links">
+            <li><a href="#development"><span data-i18n="nav.dev">DEVELOPMENT</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="#security"><span>CYBER SECURITY</span><span aria-hidden="true">→</span></a></li>
+            <li><a href="#infrastructure"><span data-i18n="nav.infra">INFRASTRUCTURE</span><span aria-hidden="true">→</span></a></li>
+          </ul>
         </div>
       </section>
 
@@ -140,7 +141,7 @@
         <header class="section__head">
           <span class="label" data-i18n="svc.kicker">01 — OUR SERVICES</span>
           <h2 class="h2" data-i18n="svc.title">Three disciplines, built from scratch around your business.</h2>
-          <span class="label section__aside" data-i18n="svc.aside">HOVER TO ILLUMINATE</span>
+          <span class="label section__aside" data-i18n="svc.aside">03 DISCIPLINES</span>
         </header>
 
         <ol class="services">
@@ -219,33 +220,33 @@
 
       <section class="section wrap" id="story">
         <header class="section__head">
-          <span class="label" data-i18n="story.kicker">03 — HOW WE STARTED</span>
+          <span class="label" data-i18n="story.kicker">03 — OUR STORY</span>
           <h2 class="h2" data-i18n="story.title">Three developers.<br>One shared vision.</h2>
-          <span class="label section__aside" data-i18n="story.aside">ARUBA ⇄ NETHERLANDS</span>
+          <span class="label section__aside">DUSHIDEV · ARUBA</span>
         </header>
 
         <div class="timeline" data-timeline aria-hidden="true"></div>
 
         <ol class="steps">
           <li class="step" tabindex="0" data-phase="0">
-            <span class="label" data-i18n="s1.label">01 · THE START</span>
-            <h3 class="h3" data-i18n="s1.title">From Aruba</h3>
-            <p data-i18n="s1.p">We started as a small collective of ICT students from Aruba, studying in the Netherlands and turning our passion for programming into real-world solutions.</p>
+            <span class="label" data-i18n="s1.label">01 · OUR ROOTS</span>
+            <h3 class="h3" data-i18n="s1.title">Made in Aruba</h3>
+            <p data-i18n="s1.p">DushiDev was founded by three developers from Aruba. The businesses we build for are our neighbours, and we want to see them succeed.</p>
           </li>
           <li class="step" tabindex="0" data-phase="1">
-            <span class="label" data-i18n="s2.label">02 · THE IDEA</span>
-            <h3 class="h3" data-i18n="s2.title">Online, simply</h3>
-            <p data-i18n="s2.p">An online presence doesn't have to be complicated or expensive. We wanted to help local small businesses grow their visibility with a custom, personal website.</p>
+            <span class="label" data-i18n="s2.label">02 · WHY WE STARTED</span>
+            <h3 class="h3" data-i18n="s2.title">Online, without the hassle</h3>
+            <p data-i18n="s2.p">An online presence should not be complicated or expensive. We started DushiDev to help local businesses get found, with websites built around them.</p>
           </li>
           <li class="step" tabindex="0" data-phase="2">
-            <span class="label" data-i18n="s3.label">03 · THE WORK</span>
-            <h3 class="h3" data-i18n="s3.title">Any size</h3>
-            <p data-i18n="s3.p">A simple home page or a fully built Event Management System. Either way, we were ready to help.</p>
+            <span class="label" data-i18n="s3.label">03 · WHAT WE BRING</span>
+            <h3 class="h3" data-i18n="s3.title">Three specialists</h3>
+            <p data-i18n="s3.p">Full-stack development, software engineering and cloud security under one roof. Every project is built from scratch, from a landing page to a full Event Management System.</p>
           </li>
           <li class="step" tabindex="0" data-phase="3">
-            <span class="label" data-i18n="s4.label">04 · TODAY</span>
-            <h3 class="h3" data-i18n="s4.title">One vision</h3>
-            <p data-i18n="s4.p">Three minds, one vision, and a serious commitment to building something great for you.</p>
+            <span class="label" data-i18n="s4.label">04 · OUR PROMISE</span>
+            <h3 class="h3" data-i18n="s4.title">Personal contact</h3>
+            <p data-i18n="s4.p">You talk directly to the people who build your project. We usually reply within 24 hours and stay available after launch.</p>
           </li>
         </ol>
       </section>
@@ -264,7 +265,7 @@
           </div>
           <h1 class="page-hero__title page-hero__title--long" data-i18n="development.title">Development.</h1>
           <div class="page-hero__foot">
-            <p class="lede" data-i18n="development.lede">Websites, custom software, online stores. Whatever you need built, we develop it from scratch specifically for your business.</p>
+            <p class="lede" data-i18n="development.lede">Your website is often the first thing a customer sees. We build it from scratch, specifically for your business: websites, custom software and online stores.</p>
             <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
           </div>
         </div>
@@ -275,7 +276,7 @@
           </div>
           <h1 class="page-hero__title" data-i18n="security.title">Cyber<br>security.</h1>
           <div class="page-hero__foot">
-            <p class="lede" data-i18n="security.lede">We look at your network, cloud and website the way an attacker would, then close the gaps. Hands-on experience in infrastructure security, ethical hacking and system hardening.</p>
+            <p class="lede" data-i18n="security.lede">One breach can cost a business the trust of its customers. We look at your network, cloud and website the way an attacker would, then close the gaps.</p>
             <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
           </div>
         </div>
@@ -286,7 +287,7 @@
           </div>
           <h1 class="page-hero__title" data-i18n="infrastructure.title">Infra-<br>structure.</h1>
           <div class="page-hero__foot">
-            <p class="lede" data-i18n="infrastructure.lede">Domains, business email, hosting and system speed. We make sure your technical foundation is set up correctly and running at its best.</p>
+            <p class="lede" data-i18n="infrastructure.lede">A slow site, lost email or expired domain quietly costs you customers. We make sure your domain, business email, hosting and speed are set up correctly and running at their best.</p>
             <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
           </div>
         </div>
@@ -443,7 +444,7 @@
         <section class="section wrap">
           <header class="section__head">
             <span class="label" data-i18n="security.lead">WHO YOU WORK WITH</span>
-            <h2 class="h2" data-i18n="security.lead.title">A specialist who learns by breaking things, in labs and CTFs.</h2>
+            <h2 class="h2" data-i18n="security.lead.title">Hands-on expertise in network, cloud and offensive security.</h2>
             <span class="label section__aside"></span>
           </header>
           <div class="lead spot" style="--spot: var(--blue); --spot-2: var(--red)">
@@ -455,7 +456,7 @@
             <div class="lead__tools">
               <span class="label" data-i18n="security.tools">TOOLING</span>
               <ul class="tags"><li>WIRESHARK</li><li>NMAP</li><li>BURP SUITE</li><li>KALI LINUX</li><li>METASPLOIT</li><li>OPENSSL</li><li>GRAFANA</li></ul>
-              <a class="inline-link" href="https://ecrs.dev" target="_blank" rel="noopener"><span data-i18n="security.profile">Full specialist profile on ecrs.dev</span> ↗</a>
+              <a class="inline-link" href="https://ecrs.dev" target="_blank" rel="noopener"><span data-i18n="security.profile">Specialist profile on ecrs.dev</span> ↗</a>
             </div>
           </div>
         </section>
@@ -659,7 +660,7 @@
           </div>
           <h1 class="page-hero__title" data-i18n="tm.title">The<br>team.</h1>
           <div class="page-hero__foot">
-            <p class="lede" data-i18n="tm.lede">Three founders who write the code, and the team around them.</p>
+            <p class="lede" data-i18n="tm.lede">The people behind your project. Three founders who build every project themselves, supported by a team for design, sales, HR and public relations.</p>
             <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
           </div>
         </div>
@@ -716,7 +717,7 @@
           </div>
 
           <form class="form" novalidate data-form>
-            <p class="form__intro" data-i18n="form.intro">Send us a message and let's discuss your idea. We usually reply within 24 hours.</p>
+            <p class="form__intro" data-i18n="form.intro">Tell us about your idea. We'll get back to you personally, usually within 24 hours.</p>
 
             <div class="field-row">
               <label class="label" for="f-name" data-i18n="form.name">NAME</label>
@@ -769,7 +770,7 @@
         <div class="cta-band__body">
           <h2 class="contact__title" data-i18n="cta.title">Ready to<br>go online?</h2>
           <div class="cta-band__side">
-            <p class="cta-band__sub" data-i18n="cta.sub">Send us a message and let's discuss your idea. We usually reply within 24 hours.</p>
+            <p class="cta-band__sub" data-i18n="cta.sub">Tell us about your idea. We'll get back to you personally, usually within 24 hours.</p>
             <a class="btn btn--primary" href="#contact" data-i18n="cta.btn">GET A QUOTE →</a>
           </div>
         </div>
@@ -782,7 +783,7 @@
     <div class="wrap">
       <p class="wordmark" data-wordmark aria-label="DushiDev">DUSHIDEV</p>
       <div class="footer__row">
-        <span class="label">© <span data-year>2026</span> DUSHIDEV. <span data-i18n="ft.made">MADE WITH LOVE IN ARUBA.</span></span>
+        <span class="label">© <span data-year>2026</span> DUSHIDEV. <span data-i18n="ft.made">ALL RIGHTS RESERVED.</span></span>
         <span class="label"><span data-i18n="ft.time">ARUBA TIME</span> <span class="footer__clock" data-clock>--:--:--</span></span>
         <span class="label copyable">CONTACT@DUSHI.DEV</span>
         <button type="button" class="label footer__top" data-to-top data-i18n="ft.top">BACK TO TOP ↑</button>
@@ -790,7 +791,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=3" defer></script>
-  <script src="main.js?v=3" defer></script>
+  <script src="i18n.js?v=4" defer></script>
+  <script src="main.js?v=4" defer></script>
 </body>
 </html>

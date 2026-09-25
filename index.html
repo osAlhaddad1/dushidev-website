@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DushiDev</title>
+  <meta name="description" content="DushiDev is a web development studio from Aruba. Three ICT students specialized in websites, software and cyber security, helping your business grow.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Fonts: Doto (display), Space Grotesk (body), Space Mono (labels/data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@400..900,0..100&family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script>try{var l=localStorage.getItem('dd-lang');if(l==='pap'||l==='en')document.documentElement.lang=l;}catch(e){}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" data-nav>
+    <a class="nav__logo" href="#home" aria-label="DushiDev home">
+      <svg class="logo-mark" viewBox="0 0 20 20" aria-hidden="true">
+        <g fill="currentColor">
+          <circle cx="2" cy="2" r="1.3"/><circle cx="2" cy="6" r="1.3"/><circle cx="2" cy="10" r="1.3"/><circle cx="2" cy="14" r="1.3"/><circle cx="2" cy="18" r="1.3"/>
+          <circle cx="6" cy="2" r="1.3"/><circle cx="10" cy="2" r="1.3"/><circle cx="14" cy="2" r="1.3"/>
+          <circle cx="18" cy="6" r="1.3"/><circle cx="18" cy="10" r="1.3"/><circle cx="18" cy="14" r="1.3"/>
+          <circle cx="6" cy="18" r="1.3"/><circle cx="10" cy="18" r="1.3"/><circle cx="14" cy="18" r="1.3"/>
+        </g>
+      </svg>
+      <span><span class="dim">&lt;</span>DushiDev<span class="dim">/&gt;</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#services" data-spy="services" data-i18n="nav.services">SERVICES</a>
+      <a href="#portfolio" data-route-link="portfolio" data-i18n="nav.portfolio">PORTFOLIO</a>
+      <a href="#team" data-route-link="team" data-i18n="nav.team">TEAM</a>
+    </nav>
+
+    <div class="nav__right">
+      <div class="segmented segmented--sm" role="group" aria-label="Language">
+        <button type="button" data-lang-set="pap" lang="pap">PAP</button>
+        <button type="button" data-lang-set="en" lang="en">EN</button>
+      </div>
+      <a class="btn btn--primary btn--sm nav__cta" href="#contact" data-route-link="contact" data-i18n="nav.quote">GET A QUOTE</a>
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>MENU</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="#home" data-i18n="nav.home">HOME</a>
+      <a href="#services" data-i18n="nav.services">SERVICES</a>
+      <a href="#portfolio" data-i18n="nav.portfolio">PORTFOLIO</a>
+      <a href="#team" data-i18n="nav.team">TEAM</a>
+      <a href="#contact" data-i18n="nav.quote">GET A QUOTE</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <span class="label copyable">CONTACT@DUSHI.DEV</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- =====================================================================
+         PAGE: HOME
+         ===================================================================== -->
+    <div class="page" data-page="home" id="page-home">
+      <section class="hero" id="top" data-field-host>
+        <canvas class="field" data-field="hero" aria-hidden="true"></canvas>
+        <div class="hero__inner wrap">
+          <div class="hero__meta">
+            <span class="label" data-i18n="hero.kicker">WEB DEVELOPMENT · ARUBA</span>
+            <span class="label hide-sm" data-i18n="hero.disciplines">WEBSITES — SOFTWARE — CYBER SECURITY</span>
+            <span class="label"><i class="dot" aria-hidden="true"></i><span data-i18n="hero.status">NOW ACCEPTING PROJECTS</span></span>
+          </div>
+
+          <h1 class="hero__title" data-i18n="hero.title">Built for<br>Aruba.</h1>
+
+          <div class="hero__foot">
+            <div class="hero__intro">
+              <p class="lede" data-i18n="hero.lede">We build digital experiences for Aruba. Three ICT students specialized in websites, software and cyber security, helping your business grow.</p>
+              <div class="hero__ctas">
+                <a class="btn btn--primary" href="#contact" data-i18n="hero.cta1">START YOUR PROJECT</a>
+                <a class="btn btn--secondary" href="#portfolio" data-i18n="hero.cta2">SEE OUR WORK</a>
+              </div>
+            </div>
+
+            <div class="hero__instrument" aria-hidden="true">
+              <dl class="readout">
+                <div><dt>FIELD</dt><dd data-read="state">LIVE</dd></div>
+                <div><dt>X</dt><dd data-read="x">0.500</dd></div>
+                <div><dt>Y</dt><dd data-read="y">0.500</dd></div>
+                <div><dt>FPS</dt><dd data-read="fps">--</dd></div>
+              </dl>
+              <p class="label hero__hint" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats wrap" aria-label="DushiDev at a glance">
+        <div class="stat">
+          <span class="label" data-i18n="stats.projects">PROJECTS SHIPPED</span>
+          <span class="stat__num">05</span>
+          <span class="caption" data-i18n="stats.projects.cap">FROM LANDING PAGES TO FULL CMS PORTALS.</span>
+        </div>
+        <div class="stat">
+          <span class="label" data-i18n="stats.team">THE TEAM</span>
+          <span class="stat__num">07</span>
+          <div class="dots" data-count="7" data-lit="3" aria-hidden="true"></div>
+          <span class="caption" data-i18n="stats.team.cap">3 FOUNDERS · 4 TEAM MEMBERS</span>
+        </div>
+        <div class="stat">
+          <span class="label" data-i18n="stats.reply">REPLY TIME</span>
+          <span class="stat__num">&lt;24<small>H</small></span>
+          <span class="caption" data-i18n="stats.reply.cap">WE USUALLY REPLY WITHIN A DAY.</span>
+        </div>
+        <div class="stat">
+          <span class="label" data-i18n="stats.origin">ORIGIN</span>
+          <dl class="rows">
+            <div><dt data-i18n="stats.from">FROM</dt><dd>ARUBA</dd></div>
+            <div><dt data-i18n="stats.studying">STUDYING IN</dt><dd data-i18n="stats.nl">NETHERLANDS</dd></div>
+            <div><dt data-i18n="stats.langs">LANGUAGES</dt><dd>PAP · EN</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section wrap" id="services">
+        <header class="section__head">
+          <span class="label" data-i18n="svc.kicker">01 — OUR SERVICES</span>
+          <h2 class="h2" data-i18n="svc.title">Three disciplines, built from scratch around your business.</h2>
+          <span class="label section__aside" data-i18n="svc.aside">HOVER TO ILLUMINATE</span>
+        </header>
+
+        <ol class="services">
+          <li class="service spot" style="--spot: var(--pink); --spot-2: var(--blue)">
+            <span class="service__num">01</span>
+            <h3 class="service__title" data-i18n="svc.dev.title">Development</h3>
+            <p class="service__desc" data-i18n="svc.dev.desc">Websites, custom software, online stores. Whatever you need built, we develop it from scratch specifically for your business.</p>
+            <ul class="tags"><li data-i18n="svc.dev.t1">WEBSITES</li><li data-i18n="svc.dev.t2">CUSTOM SOFTWARE</li><li data-i18n="svc.dev.t3">ONLINE STORES</li></ul>
+          </li>
+          <li class="service spot" style="--spot: var(--blue); --spot-2: var(--pink)">
+            <span class="service__num">02</span>
+            <h3 class="service__title">Cyber Security</h3>
+            <p class="service__desc"><span data-i18n="svc.sec.desc">Our team includes a network security and cloud specialist with hands-on experience in infrastructure security, ethical hacking and system hardening.</span> <a class="inline-link" href="https://ecrs.dev" target="_blank" rel="noopener"><span data-i18n="common.learn">Learn more</span> ↗</a></p>
+            <ul class="tags"><li>NETWORK SECURITY</li><li>CLOUD</li><li>ETHICAL HACKING</li></ul>
+          </li>
+          <li class="service spot" style="--spot: var(--red); --spot-2: var(--pink)">
+            <span class="service__num">03</span>
+            <h3 class="service__title" data-i18n="svc.infra.title">Infrastructure &amp; Optimization</h3>
+            <p class="service__desc" data-i18n="svc.infra.desc">Domains, business email, hosting and system speed. We make sure your technical foundation is set up correctly and running at its best.</p>
+            <ul class="tags"><li data-i18n="svc.infra.t1">DOMAINS</li><li data-i18n="svc.infra.t2">BUSINESS EMAIL</li><li>HOSTING</li></ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section wrap" id="selected">
+        <header class="section__head">
+          <span class="label" data-i18n="work.kicker">02 — SELECTED WORK</span>
+          <h2 class="h2" data-i18n="work.title">Built with purpose, shipped with pride.</h2>
+          <a class="label section__aside section__aside--link" href="#portfolio" data-i18n="work.all">ALL PROJECTS →</a>
+        </header>
+
+        <div class="work-grid">
+          <a class="work-card" data-cover="a" href="https://ahmkoor.com" target="_blank" rel="noopener">
+            <div class="work-card__cover grain">
+              <div class="work-card__top"><span class="label">[ 01 ]</span><span class="label" data-i18n="p1.cat">CMS / PORTAL</span></div>
+              <div class="work-card__metric"><span class="metric">CMS</span><span class="label" data-i18n="p1.sub">CALENDAR · MAPS · ADMIN DASHBOARD</span></div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__title"><h3 class="h3">AHM Koor Web Portal</h3><span class="work-card__go label" data-i18n="common.visit">VISIT SITE ↗</span></div>
+              <p data-i18n="p1.desc">A full CMS with a public dynamic calendar, Google Maps integration, and a secure admin dashboard where choir leaders manage events, news and liturgy.</p>
+              <dl class="meta">
+                <div><dt data-i18n="common.status">STATUS</dt><dd data-i18n="common.online">LIVE</dd></div>
+                <div><dt data-i18n="common.stack">STACK</dt><dd>PYTHON · SQL · MAPS API</dd></div>
+              </dl>
+            </div>
+          </a>
+
+          <a class="work-card" data-cover="b" href="https://dushideveloper.github.io/Alina-su-party/" target="_blank" rel="noopener">
+            <div class="work-card__cover grain">
+              <div class="work-card__top"><span class="label">[ 02 ]</span><span class="label">WEB APP</span></div>
+              <div class="work-card__metric"><span class="metric">RSVP</span><span class="label" data-i18n="p2.sub">GUEST PORTAL · HOST DASHBOARD</span></div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__title"><h3 class="h3">Dynamic RSVP Application</h3><span class="work-card__go label" data-i18n="common.visit">VISIT SITE ↗</span></div>
+              <p data-i18n="p2.desc">A modern digital invitation platform with a guest-facing RSVP portal and a host dashboard for managing the guest list in real time.</p>
+              <dl class="meta">
+                <div><dt data-i18n="common.status">STATUS</dt><dd data-i18n="common.online">LIVE</dd></div>
+                <div><dt data-i18n="common.stack">STACK</dt><dd>JAVASCRIPT · BACKEND · DATABASE</dd></div>
+              </dl>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section wrap" id="story">
+        <header class="section__head">
+          <span class="label" data-i18n="story.kicker">03 — HOW WE STARTED</span>
+          <h2 class="h2" data-i18n="story.title">Three developers.<br>One shared vision.</h2>
+          <span class="label section__aside" data-i18n="story.aside">ARUBA ⇄ NETHERLANDS</span>
+        </header>
+
+        <div class="timeline" data-timeline aria-hidden="true"></div>
+
+        <ol class="steps">
+          <li class="step" tabindex="0" data-phase="0">
+            <span class="label" data-i18n="s1.label">01 · THE START</span>
+            <h3 class="h3" data-i18n="s1.title">From Aruba</h3>
+            <p data-i18n="s1.p">We started as a small collective of ICT students from Aruba, studying in the Netherlands and turning our passion for programming into real-world solutions.</p>
+          </li>
+          <li class="step" tabindex="0" data-phase="1">
+            <span class="label" data-i18n="s2.label">02 · THE IDEA</span>
+            <h3 class="h3" data-i18n="s2.title">Online, simply</h3>
+            <p data-i18n="s2.p">An online presence doesn't have to be complicated or expensive. We wanted to help local small businesses grow their visibility with a custom, personal website.</p>
+          </li>
+          <li class="step" tabindex="0" data-phase="2">
+            <span class="label" data-i18n="s3.label">03 · THE WORK</span>
+            <h3 class="h3" data-i18n="s3.title">Any size</h3>
+            <p data-i18n="s3.p">A simple home page or a fully built Event Management System. Either way, we were ready to help.</p>
+          </li>
+          <li class="step" tabindex="0" data-phase="3">
+            <span class="label" data-i18n="s4.label">04 · TODAY</span>
+            <h3 class="h3" data-i18n="s4.title">One vision</h3>
+            <p data-i18n="s4.p">Three minds, one vision, and a serious commitment to building something great for you.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <!-- =====================================================================
+         PAGE: PORTFOLIO
+         ===================================================================== -->
+    <div class="page" data-page="portfolio" id="page-portfolio" hidden>
+      <section class="page-hero" data-field-host>
+        <canvas class="field" data-field="portfolio" aria-hidden="true"></canvas>
+        <div class="page-hero__inner wrap">
+          <div class="hero__meta">
+            <span class="label" data-i18n="pf.kicker">OUR WORK</span>
+            <span class="label" data-filter-count>SHOWING 4 PROJECTS</span>
+          </div>
+          <h1 class="page-hero__title" data-i18n="pf.title">Our<br>work.</h1>
+          <div class="page-hero__foot">
+            <p class="lede" data-i18n="pf.lede">Built with purpose, shipped with pride. From landing pages to full-stack web applications: real projects, real clients, real results.</p>
+            <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight wrap" aria-label="Projects">
+        <div class="filter" role="group" aria-label="Filter projects">
+          <button type="button" class="chip" data-filter="all"><span data-i18n="pf.all">ALL PROJECTS</span> <span class="chip__n" data-count-for="all"></span></button>
+          <button type="button" class="chip" data-filter="landing"><span data-i18n="pf.landing">STATIC &amp; LANDING</span> <span class="chip__n" data-count-for="landing"></span></button>
+          <button type="button" class="chip" data-filter="webapp">WEB APPS &amp; CMS <span class="chip__n" data-count-for="webapp"></span></button>
+          <button type="button" class="chip" data-filter="ecommerce">E-COMMERCE <span class="chip__n" data-count-for="ecommerce"></span></button>
+        </div>
+
+        <div class="work-grid" data-filter-grid>
+          <a class="work-card" data-cover="a" data-cat="webapp" href="https://ahmkoor.com" target="_blank" rel="noopener">
+            <div class="work-card__cover grain">
+              <div class="work-card__top"><span class="label">[ 01 ]</span><span class="label" data-i18n="p1.cat">CMS / PORTAL</span></div>
+              <div class="work-card__metric"><span class="metric">CMS</span><span class="label" data-i18n="p1.sub">CALENDAR · MAPS · ADMIN DASHBOARD</span></div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__title"><h3 class="h3">AHM Koor Web Portal</h3><span class="work-card__go label" data-i18n="common.visit">VISIT SITE ↗</span></div>
+              <p data-i18n="p1.desc">A full CMS with a public dynamic calendar, Google Maps integration, and a secure admin dashboard where choir leaders manage events, news and liturgy.</p>
+              <dl class="meta">
+                <div><dt data-i18n="common.status">STATUS</dt><dd data-i18n="common.online">LIVE</dd></div>
+                <div><dt data-i18n="common.stack">STACK</dt><dd>PYTHON · SQL · MAPS API</dd></div>
+              </dl>
+            </div>
+          </a>
+
+          <a class="work-card" data-cover="b" data-cat="webapp" href="https://dushideveloper.github.io/Alina-su-party/" target="_blank" rel="noopener">
+            <div class="work-card__cover grain">
+              <div class="work-card__top"><span class="label">[ 02 ]</span><span class="label">WEB APP</span></div>
+              <div class="work-card__metric"><span class="metric">RSVP</span><span class="label" data-i18n="p2.sub">GUEST PORTAL · HOST DASHBOARD</span></div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__title"><h3 class="h3">Dynamic RSVP Application</h3><span class="work-card__go label" data-i18n="common.visit">VISIT SITE ↗</span></div>
+              <p data-i18n="p2.desc">A modern digital invitation platform with a guest-facing RSVP portal and a host dashboard for managing the guest list in real time.</p>
+              <dl class="meta">
+                <div><dt data-i18n="common.status">STATUS</dt><dd data-i18n="common.online">LIVE</dd></div>
+                <div><dt data-i18n="common.stack">STACK</dt><dd>JAVASCRIPT · BACKEND · DATABASE</dd></div>
+              </dl>
+            </div>
+          </a>
+
+          <a class="work-card" data-cover="c" data-cat="ecommerce" href="https://tapedupsite2665.z6.web.core.windows.net/index.html" target="_blank" rel="noopener">
+            <div class="work-card__cover grain">
+              <div class="work-card__top"><span class="label">[ 03 ]</span><span class="label" data-i18n="p3.cat">STOREFRONT</span></div>
+              <div class="work-card__metric"><span class="metric">SHOP</span><span class="label" data-i18n="p3.sub">ACCOUNTS · CART · SECURE CHECKOUT</span></div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__title"><h3 class="h3">Custom Cassette Mixtapes</h3><span class="work-card__go label" data-i18n="p3.go">PREVIEW SITE ↗</span></div>
+              <p data-i18n="p3.desc">An online storefront where customers curate and order physical custom cassette mixtapes, with user accounts, a shopping cart and secure checkout.</p>
+              <dl class="meta">
+                <div><dt data-i18n="common.status">STATUS</dt><dd class="is-warn" data-i18n="p3.status">IN DEVELOPMENT</dd></div>
+                <div><dt data-i18n="common.stack">STACK</dt><dd>E-COMMERCE · PAYMENTS</dd></div>
+              </dl>
+            </div>
+          </a>
+
+          <article class="work-card" data-cover="d" data-cat="landing">
+            <div class="work-card__cover grain">
+              <div class="work-card__top"><span class="label">[ 04 ]</span><span class="label" data-i18n="p4.cat">EVENT PAGE</span></div>
+              <div class="work-card__metric"><span class="metric">EVENT</span><span class="label" data-i18n="p4.sub">STATIC · FAST · VISUAL IMPACT</span></div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__title"><h3 class="h3">Birthday Landing Page</h3><span class="work-card__go label" data-i18n="p4.go">PRIVATE</span></div>
+              <p data-i18n="p4.desc">A static event page designed to load fast and look great. No complex functionality, just a strong first impression.</p>
+              <dl class="meta">
+                <div><dt data-i18n="common.status">STATUS</dt><dd data-i18n="p4.status">PRIVATE PROJECT</dd></div>
+                <div><dt data-i18n="common.stack">STACK</dt><dd>HTML · CSS</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- =====================================================================
+         PAGE: TEAM
+         ===================================================================== -->
+    <div class="page" data-page="team" id="page-team" hidden>
+      <section class="page-hero" data-field-host>
+        <canvas class="field" data-field="team" aria-hidden="true"></canvas>
+        <div class="page-hero__inner wrap">
+          <div class="hero__meta">
+            <span class="label" data-i18n="tm.kicker">THE TEAM</span>
+            <span class="label">07 · ARUBA</span>
+          </div>
+          <h1 class="page-hero__title" data-i18n="tm.title">The<br>team.</h1>
+          <div class="page-hero__foot">
+            <p class="lede" data-i18n="tm.lede">Three founders who write the code, and the team around them.</p>
+            <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight wrap" aria-label="People">
+        <div class="team">
+          <span class="label team__group" data-i18n="tm.founders">THE FOUNDERS</span>
+          <ol class="people people--founders">
+            <li class="person spot" style="--spot: var(--pink); --spot-2: var(--red)">
+              <span class="person__idx">F.01</span>
+              <span class="person__name">Ruben Moreno Castro</span>
+              <span class="person__role" data-i18n="role.ruben">FULL STACK DEVELOPER</span>
+            </li>
+            <li class="person spot" style="--spot: var(--blue); --spot-2: var(--pink)">
+              <span class="person__idx">F.02</span>
+              <span class="person__name">Aos Al Haddad</span>
+              <span class="person__role" data-i18n="role.aos">SOFTWARE ENGINEER</span>
+            </li>
+            <li class="person spot" style="--spot: var(--red); --spot-2: var(--blue)">
+              <span class="person__idx">F.03</span>
+              <span class="person__name">Ethan Croes</span>
+              <span class="person__role" data-i18n="role.ethan">CLOUD SECURITY ENGINEER</span>
+            </li>
+          </ol>
+
+          <span class="label team__group" data-i18n="tm.meet">MEET THE TEAM</span>
+          <ol class="people people--team">
+            <li class="person"><span class="person__idx">T.01</span><span class="person__name">Dwayne Angela</span><span class="person__role" data-i18n="role.dwayne">SALES REPRESENTATIVE</span></li>
+            <li class="person"><span class="person__idx">T.02</span><span class="person__name">Tahyra Solognier</span><span class="person__role" data-i18n="role.tahyra">UI/UX DESIGN</span></li>
+            <li class="person"><span class="person__idx">T.03</span><span class="person__name">Alina Flores</span><span class="person__role" data-i18n="role.alina">HUMAN RESOURCES</span></li>
+            <li class="person"><span class="person__idx">T.04</span><span class="person__name">Diya Notani</span><span class="person__role" data-i18n="role.diya">PUBLIC RELATIONS</span></li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <!-- =====================================================================
+         PAGE: CONTACT
+         ===================================================================== -->
+    <div class="page" data-page="contact" id="page-contact" hidden>
+      <section class="section section--page wrap">
+        <div class="contact">
+          <div class="contact__panel" data-field-host>
+            <canvas class="field" data-field="contact" aria-hidden="true"></canvas>
+            <span class="label" data-i18n="ct.kicker">GET A QUOTE</span>
+            <div class="contact__big">
+              <h1 class="contact__title" data-i18n="cta.title">Ready to<br>go online?</h1>
+              <div class="mail-line">
+                <span class="contact__mail" data-copy-source>contact@dushi.dev</span>
+                <button type="button" class="btn btn--ghost btn--copy" data-copy-target="[data-copy-source]" data-i18n="ct.copy">COPY</button>
+              </div>
+            </div>
+          </div>
+
+          <form class="form" novalidate data-form>
+            <p class="form__intro" data-i18n="form.intro">Send us a message and let's discuss your idea. We usually reply within 24 hours.</p>
+
+            <div class="field-row">
+              <label class="label" for="f-name" data-i18n="form.name">NAME</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" data-i18n-ph="form.name.ph">
+            </div>
+            <div class="field-row">
+              <label class="label" for="f-email">EMAIL</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@business.aw" data-i18n-ph="form.email.ph" required>
+              <span class="field-error" data-error="email" aria-live="polite"></span>
+            </div>
+
+            <fieldset class="field-row">
+              <legend class="label" data-i18n="form.need">I NEED HELP WITH</legend>
+              <div class="chips">
+                <label class="chip chip--radio"><input id="f-svc-dev" type="radio" name="service" value="dev" checked><span data-i18n="form.dev">DEVELOPMENT</span></label>
+                <label class="chip chip--radio"><input id="f-svc-sec" type="radio" name="service" value="sec"><span>CYBER SECURITY</span></label>
+                <label class="chip chip--radio"><input id="f-svc-infra" type="radio" name="service" value="infra"><span data-i18n="form.infra">INFRASTRUCTURE</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field-row">
+              <label class="label" for="f-msg" data-i18n="form.idea">YOUR IDEA</label>
+              <textarea id="f-msg" name="message" rows="4" placeholder="What do you want to build?" data-i18n-ph="form.idea.ph"></textarea>
+            </div>
+
+            <div class="form__submit">
+              <button class="btn btn--primary" type="submit" data-i18n="form.submit">CREATE EMAIL →</button>
+              <span class="form__status caption" data-status aria-live="polite"></span>
+            </div>
+
+            <div class="draft" data-draft hidden>
+              <span class="label" data-i18n="draft.label">YOUR MESSAGE</span>
+              <textarea id="f-draft" class="draft__text" rows="7" readonly data-draft-text></textarea>
+              <div class="draft__actions">
+                <a class="btn btn--secondary" href="mailto:contact@dushi.dev" data-draft-mail data-i18n="draft.open">OPEN EMAIL APP</a>
+                <button type="button" class="btn btn--ghost" data-copy-target="[data-draft-text]" data-i18n="draft.copy">COPY MESSAGE</button>
+              </div>
+              <p class="caption" data-i18n="draft.note">If your email app didn't open, copy the message and send it to contact@dushi.dev.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ CTA BAND (every page except contact) ============ -->
+    <section class="section section--cta wrap" data-cta-band>
+      <div class="contact__panel cta-band" data-field-host>
+        <canvas class="field" data-field="cta" aria-hidden="true"></canvas>
+        <span class="label" data-i18n="cta.kicker">GET A QUOTE</span>
+        <div class="cta-band__body">
+          <h2 class="contact__title" data-i18n="cta.title">Ready to<br>go online?</h2>
+          <div class="cta-band__side">
+            <p class="cta-band__sub" data-i18n="cta.sub">Send us a message and let's discuss your idea. We usually reply within 24 hours.</p>
+            <a class="btn btn--primary" href="#contact" data-i18n="cta.btn">GET A QUOTE →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-footer>
+    <div class="wrap">
+      <p class="wordmark" data-wordmark aria-label="DushiDev">DUSHIDEV</p>
+      <div class="footer__row">
+        <span class="label">© <span data-year>2026</span> DUSHIDEV. <span data-i18n="ft.made">MADE WITH LOVE IN ARUBA.</span></span>
+        <span class="label"><span data-i18n="ft.time">ARUBA TIME</span> <span class="footer__clock" data-clock>--:--:--</span></span>
+        <span class="label copyable">CONTACT@DUSHI.DEV</span>
+        <button type="button" class="label footer__top" data-to-top data-i18n="ft.top">BACK TO TOP ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

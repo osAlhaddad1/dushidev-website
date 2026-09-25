@@ -20,44 +20,54 @@
 
   <!-- ============ NAV ============ -->
   <header class="nav" data-nav>
-    <a class="nav__logo" href="#home" aria-label="DushiDev home">
-      <svg class="logo-mark" viewBox="0 0 20 20" aria-hidden="true">
-        <g fill="currentColor">
-          <circle cx="2" cy="2" r="1.3"/><circle cx="2" cy="6" r="1.3"/><circle cx="2" cy="10" r="1.3"/><circle cx="2" cy="14" r="1.3"/><circle cx="2" cy="18" r="1.3"/>
-          <circle cx="6" cy="2" r="1.3"/><circle cx="10" cy="2" r="1.3"/><circle cx="14" cy="2" r="1.3"/>
-          <circle cx="18" cy="6" r="1.3"/><circle cx="18" cy="10" r="1.3"/><circle cx="18" cy="14" r="1.3"/>
-          <circle cx="6" cy="18" r="1.3"/><circle cx="10" cy="18" r="1.3"/><circle cx="14" cy="18" r="1.3"/>
-        </g>
-      </svg>
-      <span><span class="dim">&lt;</span>DushiDev<span class="dim">/&gt;</span></span>
-    </a>
+    <div class="nav__bar">
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+        <svg class="icon icon--menu" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor">
+          <circle cx="4" cy="7" r="1.25"/><circle cx="9.3" cy="7" r="1.25"/><circle cx="14.7" cy="7" r="1.25"/><circle cx="20" cy="7" r="1.25"/>
+          <circle cx="4" cy="12" r="1.25"/><circle cx="9.3" cy="12" r="1.25"/><circle cx="14.7" cy="12" r="1.25"/><circle cx="20" cy="12" r="1.25"/>
+          <circle cx="4" cy="17" r="1.25"/><circle cx="9.3" cy="17" r="1.25"/><circle cx="14.7" cy="17" r="1.25"/><circle cx="20" cy="17" r="1.25"/>
+        </g></svg>
+        <svg class="icon icon--close" viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor">
+          <circle cx="5" cy="5" r="1.25"/><circle cx="8.5" cy="8.5" r="1.25"/><circle cx="12" cy="12" r="1.25"/><circle cx="15.5" cy="15.5" r="1.25"/><circle cx="19" cy="19" r="1.25"/>
+          <circle cx="19" cy="5" r="1.25"/><circle cx="15.5" cy="8.5" r="1.25"/><circle cx="8.5" cy="15.5" r="1.25"/><circle cx="5" cy="19" r="1.25"/>
+        </g></svg>
+        <span class="nav__menu-label" data-menu-label>MENU</span>
+      </button>
 
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#services" data-spy="services" data-i18n="nav.services">SERVICES</a>
-      <a href="#portfolio" data-route-link="portfolio" data-i18n="nav.portfolio">PORTFOLIO</a>
-      <a href="#team" data-route-link="team" data-i18n="nav.team">TEAM</a>
-    </nav>
+      <a class="nav__logo" href="#home" aria-label="DushiDev home">&lt;DUSHIDEV/&gt;</a>
 
-    <div class="nav__right">
-      <div class="segmented segmented--sm" role="group" aria-label="Language">
-        <button type="button" data-lang-set="pap" lang="pap">PAP</button>
-        <button type="button" data-lang-set="en" lang="en">EN</button>
+      <div class="nav__right">
+        <div class="segmented segmented--sm nav__lang" role="group" aria-label="Language">
+          <button type="button" data-lang-set="pap" lang="pap">PAP</button>
+          <button type="button" data-lang-set="en" lang="en">EN</button>
+        </div>
+        <a class="nav__quote" href="#contact" data-route-link="contact" aria-label="Get a quote" data-i18n-aria="nav.quote.aria">
+          <span class="nav__quote-label" data-i18n="nav.quote">GET A QUOTE</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></g></svg>
+        </a>
       </div>
-      <a class="btn btn--primary btn--sm nav__cta" href="#contact" data-route-link="contact" data-i18n="nav.quote">GET A QUOTE</a>
-      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>MENU</button>
     </div>
   </header>
 
-  <div class="mobile-menu" id="mobile-menu" hidden>
-    <nav aria-label="Mobile">
-      <a href="#home" data-i18n="nav.home">HOME</a>
-      <a href="#services" data-i18n="nav.services">SERVICES</a>
-      <a href="#portfolio" data-i18n="nav.portfolio">PORTFOLIO</a>
-      <a href="#team" data-i18n="nav.team">TEAM</a>
-      <a href="#contact" data-i18n="nav.quote">GET A QUOTE</a>
-    </nav>
-    <div class="mobile-menu__foot">
-      <span class="label copyable">CONTACT@DUSHI.DEV</span>
+  <div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" data-menu hidden>
+    <div class="menu__card grain" data-menu-card>
+      <nav class="menu__links" aria-label="Primary">
+        <a href="#home" data-route-link="home" data-i18n="nav.home">Home</a>
+        <a href="#development" data-route-link="development" data-i18n="nav.dev">Development</a>
+        <a href="#security" data-route-link="security">Cyber Security</a>
+        <a href="#infrastructure" data-route-link="infrastructure" data-i18n="nav.infra">Infrastructure</a>
+        <a href="#portfolio" data-route-link="portfolio" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="#team" data-route-link="team" data-i18n="nav.team">Team</a>
+        <a href="#contact" data-route-link="contact" data-i18n="nav.quote">Get a quote</a>
+      </nav>
+      <div class="menu__foot">
+        <div class="segmented segmented--sm" role="group" aria-label="Language">
+          <button type="button" data-lang-set="pap" lang="pap">PAP</button>
+          <button type="button" data-lang-set="en" lang="en">EN</button>
+        </div>
+        <span class="label copyable">CONTACT@DUSHI.DEV</span>
+        <span class="label" data-i18n="menu.where">ARUBA ⇄ NETHERLANDS</span>
+      </div>
     </div>
   </div>
 
@@ -135,22 +145,34 @@
 
         <ol class="services">
           <li class="service spot" style="--spot: var(--pink); --spot-2: var(--blue)">
+            <a class="service__link" href="#development" aria-label="Development" data-i18n-aria="svc.dev.title"></a>
             <span class="service__num">01</span>
             <h3 class="service__title" data-i18n="svc.dev.title">Development</h3>
             <p class="service__desc" data-i18n="svc.dev.desc">Websites, custom software, online stores. Whatever you need built, we develop it from scratch specifically for your business.</p>
-            <ul class="tags"><li data-i18n="svc.dev.t1">WEBSITES</li><li data-i18n="svc.dev.t2">CUSTOM SOFTWARE</li><li data-i18n="svc.dev.t3">ONLINE STORES</li></ul>
+            <div class="service__side">
+              <ul class="tags"><li data-i18n="svc.dev.t1">WEBSITES</li><li data-i18n="svc.dev.t2">CUSTOM SOFTWARE</li><li data-i18n="svc.dev.t3">ONLINE STORES</li></ul>
+              <span class="service__more label" data-i18n="common.more">LEARN MORE →</span>
+            </div>
           </li>
           <li class="service spot" style="--spot: var(--blue); --spot-2: var(--pink)">
+            <a class="service__link" href="#security" aria-label="Cyber Security"></a>
             <span class="service__num">02</span>
             <h3 class="service__title">Cyber Security</h3>
-            <p class="service__desc"><span data-i18n="svc.sec.desc">Our team includes a network security and cloud specialist with hands-on experience in infrastructure security, ethical hacking and system hardening.</span> <a class="inline-link" href="https://ecrs.dev" target="_blank" rel="noopener"><span data-i18n="common.learn">Learn more</span> ↗</a></p>
-            <ul class="tags"><li>NETWORK SECURITY</li><li>CLOUD</li><li>ETHICAL HACKING</li></ul>
+            <p class="service__desc" data-i18n="svc.sec.desc">Our team includes a network security and cloud specialist with hands-on experience in infrastructure security, ethical hacking and system hardening.</p>
+            <div class="service__side">
+              <ul class="tags"><li>NETWORK SECURITY</li><li>CLOUD</li><li>ETHICAL HACKING</li></ul>
+              <span class="service__more label" data-i18n="common.more">LEARN MORE →</span>
+            </div>
           </li>
           <li class="service spot" style="--spot: var(--red); --spot-2: var(--pink)">
+            <a class="service__link" href="#infrastructure" aria-label="Infrastructure &amp; Optimization" data-i18n-aria="svc.infra.title"></a>
             <span class="service__num">03</span>
             <h3 class="service__title" data-i18n="svc.infra.title">Infrastructure &amp; Optimization</h3>
             <p class="service__desc" data-i18n="svc.infra.desc">Domains, business email, hosting and system speed. We make sure your technical foundation is set up correctly and running at its best.</p>
-            <ul class="tags"><li data-i18n="svc.infra.t1">DOMAINS</li><li data-i18n="svc.infra.t2">BUSINESS EMAIL</li><li>HOSTING</li></ul>
+            <div class="service__side">
+              <ul class="tags"><li data-i18n="svc.infra.t1">DOMAINS</li><li data-i18n="svc.infra.t2">BUSINESS EMAIL</li><li>HOSTING</li></ul>
+              <span class="service__more label" data-i18n="common.more">LEARN MORE →</span>
+            </div>
           </li>
         </ol>
       </section>
@@ -227,6 +249,310 @@
           </li>
         </ol>
       </section>
+    </div>
+
+    <!-- =====================================================================
+         PAGES: SERVICES (#development, #security, #infrastructure)
+         ===================================================================== -->
+    <div class="page" data-page="service" id="page-service" hidden>
+      <section class="page-hero" data-field-host>
+        <canvas class="field" data-field="service" aria-hidden="true"></canvas>
+        <div class="page-hero__inner wrap" data-svc="development">
+          <div class="hero__meta">
+            <span class="label" data-i18n="development.kicker">SERVICE 01 — DEVELOPMENT</span>
+            <span class="label">[ 01 / 03 ]</span>
+          </div>
+          <h1 class="page-hero__title page-hero__title--long" data-i18n="development.title">Development.</h1>
+          <div class="page-hero__foot">
+            <p class="lede" data-i18n="development.lede">Websites, custom software, online stores. Whatever you need built, we develop it from scratch specifically for your business.</p>
+            <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
+          </div>
+        </div>
+        <div class="page-hero__inner wrap" data-svc="security">
+          <div class="hero__meta">
+            <span class="label" data-i18n="security.kicker">SERVICE 02 — CYBER SECURITY</span>
+            <span class="label">[ 02 / 03 ]</span>
+          </div>
+          <h1 class="page-hero__title" data-i18n="security.title">Cyber<br>security.</h1>
+          <div class="page-hero__foot">
+            <p class="lede" data-i18n="security.lede">We look at your network, cloud and website the way an attacker would, then close the gaps. Hands-on experience in infrastructure security, ethical hacking and system hardening.</p>
+            <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
+          </div>
+        </div>
+        <div class="page-hero__inner wrap" data-svc="infrastructure">
+          <div class="hero__meta">
+            <span class="label" data-i18n="infrastructure.kicker">SERVICE 03 — INFRASTRUCTURE &amp; OPTIMIZATION</span>
+            <span class="label">[ 03 / 03 ]</span>
+          </div>
+          <h1 class="page-hero__title" data-i18n="infrastructure.title">Infra-<br>structure.</h1>
+          <div class="page-hero__foot">
+            <p class="lede" data-i18n="infrastructure.lede">Domains, business email, hosting and system speed. We make sure your technical foundation is set up correctly and running at its best.</p>
+            <p class="label hero__hint" aria-hidden="true" data-i18n="hero.hint">[ MOVE — DISTURB ]&nbsp;&nbsp;[ CLICK — PULSE ]</p>
+          </div>
+        </div>
+      </section>
+
+      <div data-svc="development">
+        <section class="section section--tight wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="svc.included">WHAT'S INCLUDED</span>
+            <h2 class="h2" data-i18n="development.inc.title">From a single page to a full system.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <ol class="includes">
+            <li class="include">
+              <span class="include__num">01</span>
+              <h3 class="include__title" data-i18n="development.i1">Websites</h3>
+              <p class="include__desc" data-i18n="development.i1.d">Home pages, landing pages and event pages that load fast and work on every phone.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">02</span>
+              <h3 class="include__title" data-i18n="development.i2">Web apps &amp; CMS</h3>
+              <p class="include__desc" data-i18n="development.i2.d">Portals with calendars, maps and an admin dashboard you manage yourself, like the AHM Koor portal.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">03</span>
+              <h3 class="include__title" data-i18n="development.i3">Online stores</h3>
+              <p class="include__desc" data-i18n="development.i3.d">Product catalog, customer accounts, shopping cart and secure checkout.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">04</span>
+              <h3 class="include__title" data-i18n="development.i4">Custom software</h3>
+              <p class="include__desc" data-i18n="development.i4.d">From an RSVP system to a full Event Management System, built around how your business works.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="svc.how">HOW IT WORKS</span>
+            <h2 class="h2" data-i18n="development.how.title">Four steps from idea to launch.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <div class="process">
+            <div class="timeline" data-timeline aria-hidden="true"></div>
+            <ol class="steps">
+            <li class="step" tabindex="0" data-phase="0">
+              <span class="label" data-i18n="development.s1.l">01 · TALK</span>
+              <h3 class="h3" data-i18n="development.s1">Talk</h3>
+              <p data-i18n="development.s1.p">We learn about your business, your customers and what the site needs to do.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="1">
+              <span class="label" data-i18n="development.s2.l">02 · DESIGN</span>
+              <h3 class="h3" data-i18n="development.s2">Design</h3>
+              <p data-i18n="development.s2.p">A layout and content plan you approve before we write any code.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="2">
+              <span class="label" data-i18n="development.s3.l">03 · BUILD</span>
+              <h3 class="h3" data-i18n="development.s3">Build</h3>
+              <p data-i18n="development.s3.p">We develop it from scratch and show you progress along the way.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="3">
+              <span class="label" data-i18n="development.s4.l">04 · LAUNCH</span>
+              <h3 class="h3" data-i18n="development.s4">Launch</h3>
+              <p data-i18n="development.s4.p">Domain, hosting and go-live, then updates whenever you need them.</p>
+            </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="development.work">RELATED WORK</span>
+            <h2 class="h2" data-i18n="development.work.title">Projects we built this way.</h2>
+            <a class="label section__aside section__aside--link" href="#portfolio" data-i18n="work.all">ALL PROJECTS →</a>
+          </header>
+          <ul class="related">
+            <li><a class="related__row" href="https://ahmkoor.com" target="_blank" rel="noopener"><span class="related__name">AHM Koor Web Portal</span><span class="label" data-i18n="p1.cat">CMS / PORTAL</span><span class="label related__go" data-i18n="common.visit">VISIT SITE ↗</span></a></li>
+            <li><a class="related__row" href="https://dushideveloper.github.io/Alina-su-party/" target="_blank" rel="noopener"><span class="related__name">Dynamic RSVP Application</span><span class="label">WEB APP</span><span class="label related__go" data-i18n="common.visit">VISIT SITE ↗</span></a></li>
+            <li><a class="related__row" href="https://tapedupsite2665.z6.web.core.windows.net/index.html" target="_blank" rel="noopener"><span class="related__name">Custom Cassette Mixtapes</span><span class="label" data-i18n="p3.cat">STOREFRONT</span><span class="label related__go" data-i18n="p3.go">PREVIEW SITE ↗</span></a></li>
+          </ul>
+        </section>
+
+        <section class="section section--next wrap">
+          <a class="next-svc" href="#security">
+            <span class="label" data-i18n="svc.next">NEXT SERVICE</span>
+            <span class="next-svc__name"><span data-i18n="security.name">Cyber Security</span> →</span>
+          </a>
+        </section>
+      </div>
+      <div data-svc="security">
+        <section class="section section--tight wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="svc.included">WHAT'S INCLUDED</span>
+            <h2 class="h2" data-i18n="security.inc.title">Four areas we check and secure.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <ol class="includes">
+            <li class="include">
+              <span class="include__num">01</span>
+              <h3 class="include__title" data-i18n="security.i1">Network security</h3>
+              <p class="include__desc" data-i18n="security.i1.d">Firewalls, access control lists, VLANs and VPNs, set up so only the right people and devices get in.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">02</span>
+              <h3 class="include__title" data-i18n="security.i2">Ethical hacking</h3>
+              <p class="include__desc" data-i18n="security.i2.d">With your written permission, we test your website and systems for weaknesses like SQL injection and XSS before someone else finds them.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">03</span>
+              <h3 class="include__title" data-i18n="security.i3">System hardening</h3>
+              <p class="include__desc" data-i18n="security.i3.d">Updates, secure configuration and fewer open doors on your servers, routers and computers.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">04</span>
+              <h3 class="include__title" data-i18n="security.i4">Monitoring</h3>
+              <p class="include__desc" data-i18n="security.i4.d">Dashboards and alerts with Prometheus and Grafana, so you notice problems early.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="svc.how">HOW IT WORKS</span>
+            <h2 class="h2" data-i18n="security.how.title">Permission first, then a clear plan.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <div class="process">
+            <div class="timeline" data-timeline aria-hidden="true"></div>
+            <ol class="steps">
+            <li class="step" tabindex="0" data-phase="0">
+              <span class="label" data-i18n="security.s1.l">01 · SCOPE</span>
+              <h3 class="h3" data-i18n="security.s1">Scope</h3>
+              <p data-i18n="security.s1.p">We agree in writing on what we are allowed to test.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="1">
+              <span class="label" data-i18n="security.s2.l">02 · ASSESS</span>
+              <h3 class="h3" data-i18n="security.s2">Assess</h3>
+              <p data-i18n="security.s2.p">Scans, manual testing and a review of your configuration.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="2">
+              <span class="label" data-i18n="security.s3.l">03 · REPORT</span>
+              <h3 class="h3" data-i18n="security.s3">Report</h3>
+              <p data-i18n="security.s3.p">A clear report in plain language, sorted by risk.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="3">
+              <span class="label" data-i18n="security.s4.l">04 · HARDEN</span>
+              <h3 class="h3" data-i18n="security.s4">Harden</h3>
+              <p data-i18n="security.s4.p">We help fix the issues, then check them again.</p>
+            </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="security.lead">WHO YOU WORK WITH</span>
+            <h2 class="h2" data-i18n="security.lead.title">A specialist who learns by breaking things, in labs and CTFs.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <div class="lead spot" style="--spot: var(--blue); --spot-2: var(--red)">
+            <span class="person__idx">F.03</span>
+            <div class="lead__who">
+              <span class="person__name">Ethan Croes</span>
+              <span class="person__role" data-i18n="role.ethan">CLOUD SECURITY ENGINEER</span>
+            </div>
+            <div class="lead__tools">
+              <span class="label" data-i18n="security.tools">TOOLING</span>
+              <ul class="tags"><li>WIRESHARK</li><li>NMAP</li><li>BURP SUITE</li><li>KALI LINUX</li><li>METASPLOIT</li><li>OPENSSL</li><li>GRAFANA</li></ul>
+              <a class="inline-link" href="https://ecrs.dev" target="_blank" rel="noopener"><span data-i18n="security.profile">Full specialist profile on ecrs.dev</span> ↗</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--next wrap">
+          <a class="next-svc" href="#infrastructure">
+            <span class="label" data-i18n="svc.next">NEXT SERVICE</span>
+            <span class="next-svc__name"><span data-i18n="infrastructure.name">Infrastructure &amp; Optimization</span> →</span>
+          </a>
+        </section>
+      </div>
+      <div data-svc="infrastructure">
+        <section class="section section--tight wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="svc.included">WHAT'S INCLUDED</span>
+            <h2 class="h2" data-i18n="infrastructure.inc.title">The technical base every business runs on.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <ol class="includes">
+            <li class="include">
+              <span class="include__num">01</span>
+              <h3 class="include__title" data-i18n="infrastructure.i1">Domains</h3>
+              <p class="include__desc" data-i18n="infrastructure.i1.d">Registering your domain and pointing it to your website and email, with DNS set up correctly.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">02</span>
+              <h3 class="include__title" data-i18n="infrastructure.i2">Business email</h3>
+              <p class="include__desc" data-i18n="infrastructure.i2.d">Professional addresses like name@yourbusiness.aw, set up on your phone and computer.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">03</span>
+              <h3 class="include__title" data-i18n="infrastructure.i3">Hosting</h3>
+              <p class="include__desc" data-i18n="infrastructure.i3.d">Hosting with HTTPS, chosen for your traffic and your budget.</p>
+            </li>
+            <li class="include">
+              <span class="include__num">04</span>
+              <h3 class="include__title" data-i18n="infrastructure.i4">Speed</h3>
+              <p class="include__desc" data-i18n="infrastructure.i4.d">We find what makes your site or systems slow and fix it: images, caching and code.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="svc.how">HOW IT WORKS</span>
+            <h2 class="h2" data-i18n="infrastructure.how.title">Check, plan, set up, maintain.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <div class="process">
+            <div class="timeline" data-timeline aria-hidden="true"></div>
+            <ol class="steps">
+            <li class="step" tabindex="0" data-phase="0">
+              <span class="label" data-i18n="infrastructure.s1.l">01 · AUDIT</span>
+              <h3 class="h3" data-i18n="infrastructure.s1">Audit</h3>
+              <p data-i18n="infrastructure.s1.p">We check what you have now: domain, email, hosting and speed.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="1">
+              <span class="label" data-i18n="infrastructure.s2.l">02 · PLAN</span>
+              <h3 class="h3" data-i18n="infrastructure.s2">Plan</h3>
+              <p data-i18n="infrastructure.s2.p">A short list of what to fix first.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="2">
+              <span class="label" data-i18n="infrastructure.s3.l">03 · SET UP</span>
+              <h3 class="h3" data-i18n="infrastructure.s3">Set up</h3>
+              <p data-i18n="infrastructure.s3.p">We configure or move everything carefully, so your email and data keep working.</p>
+            </li>
+            <li class="step" tabindex="0" data-phase="3">
+              <span class="label" data-i18n="infrastructure.s4.l">04 · MAINTAIN</span>
+              <h3 class="h3" data-i18n="infrastructure.s4">Maintain</h3>
+              <p data-i18n="infrastructure.s4.p">We keep an eye on it and adjust as your business grows.</p>
+            </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section wrap">
+          <header class="section__head">
+            <span class="label" data-i18n="infrastructure.check">A HEALTHY SETUP</span>
+            <h2 class="h2" data-i18n="infrastructure.check.title">What your foundation looks like when we're done.</h2>
+            <span class="label section__aside"></span>
+          </header>
+          <dl class="checklist">
+            <div><dt>DOMAIN</dt><dd><i class="ok" aria-hidden="true"></i><span data-i18n="infrastructure.c1">CONNECTED</span></dd></div>
+            <div><dt>DNS</dt><dd><i class="ok" aria-hidden="true"></i><span data-i18n="infrastructure.c2">CONFIGURED</span></dd></div>
+            <div><dt>EMAIL</dt><dd><i class="ok" aria-hidden="true"></i><span data-i18n="infrastructure.c3">NAME@YOURBUSINESS.AW</span></dd></div>
+            <div><dt>HTTPS</dt><dd><i class="ok" aria-hidden="true"></i><span data-i18n="infrastructure.c4">ENABLED</span></dd></div>
+            <div><dt data-i18n="infrastructure.c5.l">SPEED</dt><dd><i class="ok" aria-hidden="true"></i><span data-i18n="infrastructure.c5">OPTIMIZED</span></dd></div>
+          </dl>
+        </section>
+
+        <section class="section section--next wrap">
+          <a class="next-svc" href="#development">
+            <span class="label" data-i18n="svc.next">NEXT SERVICE</span>
+            <span class="next-svc__name"><span data-i18n="development.name">Development</span> →</span>
+          </a>
+        </section>
+      </div>
     </div>
 
     <!-- =====================================================================

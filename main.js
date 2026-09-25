@@ -171,7 +171,7 @@ void main(){
   const FIELD_UNIFORMS = ['uRes', 'uTime', 'uClock', 'uMouse', 'uHover', 'uForce', 'uPink', 'uBlue', 'uRed', 'uGain', 'uWarp', 'uSeed', 'uPulse'];
   const GRAIN_UNIFORMS = ['uTex', 'uRes', 'uGrain', 'uGrainT'];
   const MAX_LIVE = 2; // at most two gradient fields render per frame
-  const VARIANT_SEED = { hero: 0, portfolio: 29.1, team: 64.2, contact: 41.9, cta: 53.7 };
+  const VARIANT_SEED = { hero: 0, service: 11.4, portfolio: 29.1, team: 64.2, contact: 41.9, cta: 53.7 };
 
   class Field {
     constructor(canvas) {
@@ -317,7 +317,8 @@ void main(){
       gl.uniform3fv(u.uPink, COLORS.pink);
       gl.uniform3fv(u.uBlue, COLORS.blue);
       gl.uniform3fv(u.uRed, COLORS.red);
-      gl.uniform3f(u.uGain, cfg.pink / 100 * 1.1, cfg.blue / 100 * 1.1, cfg.red / 100 * 1.1);
+      const g = this.gain || [1, 1, 1];
+      gl.uniform3f(u.uGain, cfg.pink / 100 * 1.1 * g[0], cfg.blue / 100 * 1.1 * g[1], cfg.red / 100 * 1.1 * g[2]);
       gl.uniform1f(u.uWarp, cfg.warp / 100 * 1.2);
       gl.uniform1f(u.uSeed, (cfg.seed % 997) / 61 + this.offset);
       gl.uniform4fv(u.uPulse, this.pulses);
@@ -407,94 +408,107 @@ void main(){
   function syncState() { setText(R.state, ui(cfg.motion === 'still' ? 'hold' : 'live')); }
 
   /* ------------------------------------------------------------------------
-     Nav: solid bar past the hero, mobile menu
+     Menu: full-screen card
      ------------------------------------------------------------------------ */
   const nav = $('[data-nav]');
-  const menu = $('#mobile-menu');
+  const menu = $('[data-menu]');
+  const menuCard = $('[data-menu-card]');
   const menuBtn = $('[data-menu-toggle]');
-  const pages = $$('[data-page]');
-  const PAGE_IDS = pages.map((p) => p.dataset.page);
-  let current = null;
-  let heroEdge = 0;
-
-  function measureHero() {
-    const page = pages.find((p) => !p.hidden);
-    const hero = page && page.querySelector('.hero, .page-hero');
-    heroEdge = hero ? hero.offsetHeight - 72 : -1;
-  }
-  const onScroll = () => nav.classList.toggle('is-scrolled', !menu.hidden || scrollY > heroEdge);
-  addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', () => { measureHero(); onScroll(); }, { passive: true });
+  const menuLabel = $('[data-menu-label]');
+  let lastFocus = null;
 
   function setMenu(open) {
+    if (open === !menu.hidden) return;
     menu.hidden = !open;
+    nav.classList.toggle('is-open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.textContent = ui(open ? 'close' : 'menu');
+    menuLabel.textContent = ui(open ? 'close' : 'menu');
     document.body.style.overflow = open ? 'hidden' : '';
-    onScroll();
+    if (open) {
+      lastFocus = document.activeElement;
+      const here = $('.menu__links a[aria-current="page"]', menu) || $('.menu__links a', menu);
+      here && here.focus({ preventScroll: true });
+    } else if (lastFocus && lastFocus.focus) {
+      lastFocus.focus({ preventScroll: true });
+    }
   }
   menuBtn.addEventListener('click', () => setMenu(menu.hidden));
   $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
-  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });
-
-  // highlight SERVICES while it is on screen (home page only)
-  const spyLinks = $$('[data-spy]');
-  const spy = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      spyLinks.forEach((a) => { if (a.dataset.spy === e.target.id) a.classList.toggle('is-active', e.isIntersecting); });
+  addEventListener('keydown', (e) => {
+    if (menu.hidden) return;
+    if (e.key === 'Escape') { setMenu(false); return; }
+    if (e.key === 'Tab') {
+      // keep focus inside the bar + card while the menu is open
+      const f = [...$$('button, a', nav.querySelector('.nav__bar')), ...$$('a, button', menu)].filter((el) => el.offsetParent !== null);
+      const i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
     }
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  spyLinks.forEach((a) => { const s = document.getElementById(a.dataset.spy); if (s) spy.observe(s); });
+  });
+  menu.addEventListener('pointermove', (e) => {
+    const r = menuCard.getBoundingClientRect();
+    menuCard.style.setProperty('--gx', `${((e.clientX - r.left) / r.width * 100).toFixed(1)}%`);
+    menuCard.style.setProperty('--gy', `${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`);
+  });
 
   /* ------------------------------------------------------------------------
      Pages: one document, each page has its own #address
      ------------------------------------------------------------------------ */
+  const pages = $$('[data-page]');
+  const PAGE_IDS = pages.map((p) => p.dataset.page).filter((p) => p !== 'service');
+  const SERVICES = ['development', 'security', 'infrastructure'];
+  const SERVICE_GAIN = { development: [1.15, 0.45, 0.35], security: [0.35, 1.15, 0.3], infrastructure: [0.5, 0.35, 1.2] };
   const ctaBand = $('[data-cta-band]');
-  const PAGE_TITLE = {
-    en: { portfolio: 'Portfolio', team: 'The Team', contact: 'Get a Quote' },
-    pap: { portfolio: 'meta.portfolio', team: 'meta.team', contact: 'meta.contact' },
+  let current = null;   // route token: home, development, portfolio, ...
+
+  const TITLES = {
+    en: { development: 'Development', security: 'Cyber Security', infrastructure: 'Infrastructure & Optimization', portfolio: 'Portfolio', team: 'The Team', contact: 'Get a Quote' },
+    pap: { development: 'Desaroyo', security: 'Cyber Security', infrastructure: 'Infrastructura & Optimisacion', portfolio: 'Portfolio', team: 'E Team', contact: 'Pidi un Quote' },
   };
   function setTitle() {
-    const name = lang === 'pap' ? I18N.pap[PAGE_TITLE.pap[current]] : PAGE_TITLE.en[current];
+    const name = TITLES[lang][current];
     document.title = name ? `${name} · DushiDev` : 'DushiDev';
   }
 
   function resolve() {
     const token = decodeURIComponent(location.hash.replace(/^#/, ''));
-    if (!token) return { page: 'home' };
-    if (PAGE_IDS.includes(token)) return { page: token };
+    if (!token) return { token: 'home' };
+    if (PAGE_IDS.includes(token) || SERVICES.includes(token)) return { token };
     const el = document.getElementById(token);
     if (el) {
       const host = el.closest('[data-page]');
-      return host ? { page: host.dataset.page, anchor: el } : null; // e.g. #main: leave it to the browser
+      return host ? { token: host.dataset.page, anchor: el } : null; // e.g. #main: leave it to the browser
     }
-    return { page: 'home' };
+    return { token: 'home' };
   }
 
-  function show(page) {
-    if (page === current) return false;
-    current = page;
+  function show(token) {
+    if (token === current) return false;
+    current = token;
+    const svc = SERVICES.includes(token) ? token : null;
+    const page = svc ? 'service' : token;
     pages.forEach((p) => { p.hidden = p.dataset.page !== page; });
+    if (svc) {
+      $$('[data-svc]').forEach((el) => { el.hidden = el.dataset.svc !== svc; });
+      if (byName.service) byName.service.gain = SERVICE_GAIN[svc];
+    }
     if (ctaBand) ctaBand.hidden = page === 'contact';
     $$('[data-route-link]').forEach((a) => {
-      if (a.dataset.routeLink === page) a.setAttribute('aria-current', 'page');
+      if (a.dataset.routeLink === token) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
-    if (page !== 'home') spyLinks.forEach((a) => a.classList.remove('is-active'));
-    document.body.dataset.route = page;
+    document.body.dataset.route = token;
     setTitle();
-    if (!menu.hidden) setMenu(false);
+    setMenu(false);
     return true;
   }
 
   function route() {
     const r = resolve();
     if (!r) return;
-    const changed = show(r.page);
-    measureHero();
+    const changed = show(r.token);
     if (r.anchor) requestAnimationFrame(() => r.anchor.scrollIntoView({ block: 'start' }));
     else if (changed) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    onScroll();
   }
   addEventListener('hashchange', route);
 
@@ -503,7 +517,10 @@ void main(){
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
     const token = a.getAttribute('href').slice(1);
-    if (PAGE_IDS.includes(token) && location.hash === `#${token}`) window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    if ((PAGE_IDS.includes(token) || SERVICES.includes(token)) && location.hash === `#${token}`) {
+      setMenu(false);
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
   });
 
   $$('[data-to-top]').forEach((b) => b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })));
@@ -569,15 +586,14 @@ void main(){
   });
 
   /* ------------------------------------------------------------------------
-     Story: light a chapter on the timeline
+     Timelines (story + each service): light a step's segments
      ------------------------------------------------------------------------ */
-  const timeline = $('[data-timeline]');
-  if (timeline) {
-    // four chapters of five segments; the last one ("today") is still ongoing
+  $$('[data-timeline]').forEach((timeline) => {
+    // four steps of five segments; the last one is ongoing
     timeline.innerHTML = [0, 1, 2, 3].map((p) =>
       `<span class="tl-phase">${`<i data-p="${p}"${p === 3 ? ' class="ongoing"' : ''}></i>`.repeat(5)}</span>`).join('');
     const segs = $$('i', timeline);
-    const steps = $$('.step');
+    const steps = $$('.step', timeline.parentElement);
     const activate = (p) => {
       if (p == null) { timeline.removeAttribute('data-active'); steps.forEach((s) => s.classList.remove('is-active')); segs.forEach((s) => s.classList.remove('lit')); return; }
       timeline.setAttribute('data-active', p);
@@ -590,7 +606,7 @@ void main(){
       s.addEventListener('pointerleave', () => activate(null));
       s.addEventListener('blur', () => activate(null));
     });
-  }
+  });
 
   /* ------------------------------------------------------------------------
      Footer wordmark: dot-matrix lit by moving light
@@ -695,6 +711,7 @@ void main(){
      ------------------------------------------------------------------------ */
   const EN_HTML = new Map($$('[data-i18n]').map((el) => [el, el.innerHTML]));
   const EN_PH = new Map($$('[data-i18n-ph]').map((el) => [el, el.getAttribute('placeholder') || '']));
+  const EN_ARIA = new Map($$('[data-i18n-aria]').map((el) => [el, el.getAttribute('aria-label') || '']));
 
   function applyLang(next, persist) {
     lang = next === 'pap' ? 'pap' : 'en';
@@ -708,13 +725,16 @@ void main(){
       const v = dict && dict[el.dataset.i18nPh];
       el.setAttribute('placeholder', v == null ? ph : v);
     });
+    EN_ARIA.forEach((label, el) => {
+      const v = dict && dict[el.dataset.i18nAria];
+      el.setAttribute('aria-label', v == null ? label : v.replace(/&amp;/g, '&'));
+    });
     $$('[data-lang-set]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.langSet === lang)));
     if (persist) store.set('dd-lang', lang);
-    menuBtn.textContent = ui(menu.hidden ? 'menu' : 'close');
+    menuLabel.textContent = ui(menu.hidden ? 'menu' : 'close');
     syncState();
     updateFilterCount();
     setTitle();
-    measureHero();
   }
   $$('[data-lang-set]').forEach((b) => b.addEventListener('click', () => applyLang(b.dataset.langSet, true)));
 

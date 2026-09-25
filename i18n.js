@@ -6,12 +6,8 @@
    ========================================================================== */
 window.DD_I18N = {
   pap: {
-    /* meta + nav */
-    'meta.portfolio': 'Portfolio',
-    'meta.team': 'E Team',
-    'meta.contact': 'Pidi un Quote',
+    /* nav */
     'nav.home': 'INICIO', // review
-    'nav.services': 'SERVICIONAN',
     'nav.portfolio': 'PORTFOLIO',
     'nav.team': 'E TEAM',
     'nav.quote': 'PIDI UN QUOTE',
@@ -53,7 +49,6 @@ window.DD_I18N = {
     'svc.infra.desc': 'Domain, email corporativo, hosting y velocidad di bo sistema. Nos ta percura pa tur e base tecnico di bo negoshi ta configurá corectamente y ta core optimal.',
     'svc.infra.t1': 'DOMAIN',
     'svc.infra.t2': 'EMAIL CORPORATIVO',
-    'common.learn': 'Sinja mas',
 
     /* work */
     'work.kicker': '02 — TRABOU SELECCIONÁ', // review
@@ -141,6 +136,110 @@ window.DD_I18N = {
     'draft.open': 'HABRI APP DI EMAIL', // review
     'draft.copy': 'COPIA MENSAHE', // review
     'draft.note': 'Si bo app di email no a habri, copia e mensahe y mande na contact@dushi.dev.', // review
+
+    /* menu */
+    'nav.dev': 'DESAROYO',
+    'nav.infra': 'INFRASTRUCTURA',
+    'nav.quote.aria': 'Pidi un quote',
+    'menu.where': 'ARUBA ⇄ HULANDA',
+    'common.more': 'SINJA MAS →',
+
+    /* service pages — shared */
+    'svc.included': 'KICO TA INCLUÍ', // review
+    'svc.how': 'CON E TA TRAHA', // review
+    'svc.next': 'PROXIMO SERVICIO', // review
+
+    /* service: development */
+    'development.kicker': 'SERVICIO 01 — DESAROYO',
+    'development.title': 'Desaroyo.',
+    'development.lede': 'Website, software personalisá, tienda online. Sea kico bo mester traha, nos ta desaroyé di scratch specificamente pa bo negoshi.',
+    'development.name': 'Desaroyo',
+    'development.inc.title': 'For di un solo pagina te un sistema completo.', // review
+    'development.i1': 'Website',
+    'development.i1.d': 'Home page, landing page y pagina di evento cu ta carga lihe y ta traha riba tur telefon.', // review
+    'development.i2': 'Web app &amp; CMS',
+    'development.i2.d': 'Portal cu kalendario, mapa y un dashboard di admin cu bo mes ta maneha, manera e portal di AHM Koor.', // review
+    'development.i3': 'Tienda online',
+    'development.i3.d': 'Catalogo di producto, cuenta di cliente, shopping cart y checkout sigur.', // review
+    'development.i4': 'Software personalisá',
+    'development.i4.d': 'For di un sistema di RSVP te un Event Management System completo, traha rond di con bo negoshi ta funciona.', // review
+    'development.how.title': 'Cuater paso for di idea te lanzamento.', // review
+    'development.s1.l': '01 · PAPIA', // review
+    'development.s1': 'Papia', // review
+    'development.s1.p': 'Nos ta sinja di bo negoshi, bo clientenan y kico e website mester haci.', // review
+    'development.s2.l': '02 · DISEÑA', // review
+    'development.s2': 'Diseña', // review
+    'development.s2.p': 'Un layout y plan di contenido cu bo ta aproba prome cu nos skirbi code.', // review
+    'development.s3.l': '03 · TRAHA',
+    'development.s3': 'Traha',
+    'development.s3.p': 'Nos ta desaroyé di scratch y ta mustra bo e progreso durante e proceso.', // review
+    'development.s4.l': '04 · LANZA', // review
+    'development.s4': 'Lanza', // review
+    'development.s4.p': 'Domain, hosting y bay online, despues update tur ora cu bo mester.', // review
+    'development.work': 'TRABOU RELACIONÁ', // review
+    'development.work.title': 'Proyectonan cu nos a traha asina.', // review
+
+    /* service: cyber security */
+    'security.kicker': 'SERVICIO 02 — CYBER SECURITY',
+    'security.lede': 'Nos ta wak bo network, cloud y website manera un atacante lo wak nan, y despues nos ta sera e brechanan. Experiencia hands-on den infrastructure security, ethical hacking y hardening di sistema.', // review
+    'security.inc.title': 'Cuater area cu nos ta chequea y protehá.', // review
+    'security.i1.d': 'Firewall, access control list, VLAN y VPN, configurá pa djis e personanan y aparatonan corecto por drenta.', // review
+    'security.i2.d': 'Cu bo permiso na skirbí, nos ta test bo website y sistemanan pa debilidad manera SQL injection y XSS, prome cu otro hende haya nan.', // review
+    'security.i3.d': 'Update, configuracion sigur y menos porta habrí riba bo server, router y computer.', // review
+    'security.i4': 'Monitoreo', // review
+    'security.i4.d': 'Dashboard y alerta cu Prometheus y Grafana, pa bo ripara problema tempran.', // review
+    'security.how.title': 'Prome permiso, despues un plan cla.', // review
+    'security.s1.l': '01 · ALCANCE', // review
+    'security.s1': 'Alcance', // review
+    'security.s1.p': 'Nos ta pone di acuerdo na skirbí kico nos tin permiso di test.', // review
+    'security.s2.l': '02 · EVALUA', // review
+    'security.s2': 'Evalua', // review
+    'security.s2.p': 'Scan, test manual y un revision di bo configuracion.', // review
+    'security.s3.l': '03 · RAPORTA', // review
+    'security.s3': 'Raporta', // review
+    'security.s3.p': 'Un raport cla, den idioma simpel, ordená segun riesgo.', // review
+    'security.s4.l': '04 · PROTEHA', // review
+    'security.s4': 'Proteha', // review
+    'security.s4.p': 'Nos ta yuda drecha e problemanan, y despues nos ta chequea nan atrobe.', // review
+    'security.lead': 'CU KEN BO TA TRAHA', // review
+    'security.lead.title': 'Un especialista cu ta sinja door di kibra cosnan, den lab y CTF.', // review
+    'security.tools': 'HERAMENTNAN', // review
+    'security.profile': 'Perfil completo di nos especialista riba ecrs.dev', // review
+
+    /* service: infrastructure */
+    'infrastructure.kicker': 'SERVICIO 03 — INFRASTRUCTURA &amp; OPTIMISACION',
+    'infrastructure.title': 'Infra-<br>structura.',
+    'infrastructure.lede': 'Domain, email corporativo, hosting y velocidad di bo sistema. Nos ta percura pa tur e base tecnico di bo negoshi ta configurá corectamente y ta core optimal.',
+    'infrastructure.name': 'Infrastructura &amp; Optimisacion',
+    'infrastructure.inc.title': 'E base tecnico cu tur negoshi ta core riba dje.', // review
+    'infrastructure.i1': 'Domain',
+    'infrastructure.i1.d': 'Registra bo domain y conectá esaki cu bo website y email, cu DNS configurá corectamente.', // review
+    'infrastructure.i2': 'Email corporativo',
+    'infrastructure.i2.d': 'Adres profesional manera nomber@bonegoshi.aw, configurá riba bo telefon y computer.', // review
+    'infrastructure.i3.d': 'Hosting cu HTTPS, scogí pa bo trafico y bo presupuesto.', // review
+    'infrastructure.i4': 'Velocidad',
+    'infrastructure.i4.d': 'Nos ta haya kico ta haci bo website of sistema slow y nos ta drecha esaki: imagen, caching y code.', // review
+    'infrastructure.how.title': 'Chequea, planea, configura, mantene.', // review
+    'infrastructure.s1.l': '01 · AUDITA', // review
+    'infrastructure.s1': 'Audita', // review
+    'infrastructure.s1.p': 'Nos ta chequea kico bo tin awor: domain, email, hosting y velocidad.', // review
+    'infrastructure.s2.l': '02 · PLANEA', // review
+    'infrastructure.s2': 'Planea', // review
+    'infrastructure.s2.p': 'Un lista cortico di kico pa drecha prome.', // review
+    'infrastructure.s3.l': '03 · CONFIGURA', // review
+    'infrastructure.s3': 'Configura', // review
+    'infrastructure.s3.p': 'Nos ta configura of muda tur cos cu cuidou, pa bo email y data sigui traha.', // review
+    'infrastructure.s4.l': '04 · MANTENE', // review
+    'infrastructure.s4': 'Mantene', // review
+    'infrastructure.s4.p': 'Nos ta wak riba dje y ta ahusta segun bo negoshi ta crece.', // review
+    'infrastructure.check': 'UN SETUP SALUDABEL', // review
+    'infrastructure.check.title': 'Asina bo base ta wak ora nos caba.', // review
+    'infrastructure.c1': 'CONECTÁ', // review
+    'infrastructure.c2': 'CONFIGURÁ', // review
+    'infrastructure.c3': 'NOMBER@BONEGOSHI.AW', // review
+    'infrastructure.c4': 'ACTIVÁ', // review
+    'infrastructure.c5.l': 'VELOCIDAD',
+    'infrastructure.c5': 'OPTIMISÁ', // review
 
     /* footer */
     'ft.made': 'TRAHA CU AMOR NA ARUBA.', // review
